@@ -6,6 +6,8 @@ export default function NavBar(){
             <Link to='/'>Login</Link>
             &nbsp; || &nbsp;
             <Link to='SignUpPage'>Sign Up</Link>
+            &nbsp; || &nbsp;
+            <Link to='CoursePage'>Course</Link>
         </>
     );
 }

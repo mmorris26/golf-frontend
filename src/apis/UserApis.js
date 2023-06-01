@@ -12,6 +12,7 @@ export const createUser = (newUser) => {
         user: {
             email: `${newUser.email}`,
             password: `${newUser.password}`,
+            name: `${newUser.name}`
         }
       })
     })
