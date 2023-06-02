@@ -7,14 +7,14 @@ import { storeCourseId, getCourseIdFromStorage } from "../apis/CourseApis";
 
 export default function RoundPage(){
 
-useEffect( () =>{
+// useEffect( () =>{
 
-    getCurrentCourse()
-        .then((response) => response.json())
-        .then((data) => {
-            storeCourseId(data.id)
-        })
-}, [] )
+//     getCurrentCourse()
+//         .then((response) => response.json())
+//         .then((data) => {
+//             storeCourseId(data.id)
+//         })
+// }, [] )
 
 
 

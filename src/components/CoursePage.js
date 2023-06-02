@@ -2,6 +2,8 @@ import { useState } from "react";
 import { getAllCourses } from "../apis/CourseApis";
 import { useEffect } from "react";
 import ListOfCourses from "./ListOfCourses";
+import { createCourse } from "../apis/CourseApis";
+import { storeCourseId } from "../apis/CourseApis";
 
 export default function CoursePage(){
     
@@ -15,6 +17,13 @@ export default function CoursePage(){
     function handleCourseTextInput(e){
         setNewCourse({ ...newCourse, [e.target.name]: e.target.value });
     }
+
+function createNewCourse(){
+    createCourse(newCourse)
+        .then((response) => response.json())
+        .then((data) => storeCourseId(data.id))
+}
+
 useEffect(() => {
     getAllCourses()
         .then((course) => course.json())
@@ -48,7 +57,7 @@ useEffect(() => {
                 /> 
             <button type="submit" onClick={(e) => {
             e.preventDefault();
-            
+            createNewCourse()
           }}>Create Course</button>
         </form>
         <h1>Or Pick From Our List of Courses</h1>
