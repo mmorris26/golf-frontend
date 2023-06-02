@@ -28,10 +28,12 @@ export default function LoginPage(){
          .then((data) => {
             storeUserIdLocally(data)
          })
-         console.log("User ID = ", getUserIdFromStorage())
+         
     }
 
-    
+    function redirectToCoursePage(){
+        navigate('/CoursePage');
+    }  
     
 
     function redirectToSignUpPage(){
@@ -39,32 +41,43 @@ export default function LoginPage(){
     }
 
     return(
-        <>
-        <h1>Login</h1>
-        <form>
-            <label>Email</label>
-                <input
-                    name="email"
-                    placeholder="Enter your email address"
-                    required
-                    value={userCredentials.email}
-                    onChange={handleLoginTextInput}
-                /> 
-            <label>Password</label>
-                <input
-                    name="password"
-                    placeholder="Enter your password"
-                    required
-                    value={userCredentials.password}
-                    onChange={handleLoginTextInput}
-                /> 
-            <button type="submit" onClick={(e) => {
-            e.preventDefault();
-            logUserIn();
-          }}>Sign In</button> 
-            <button onClick={redirectToSignUpPage} type="submit">Sign Up</button>
-        </form>
-        
-        </>
+        <div
+      style={{
+        backgroundImage: `url("https://golf.com/wp-content/uploads/2020/04/augusta-national-12-960x540.jpg")`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: 'column',
+      }}
+    >
+      <h1>Login</h1>
+      <form>
+        <label>Email</label>
+        <input
+          name="email"
+          placeholder="Enter your email address"
+          required
+          value={userCredentials.email}
+          onChange={handleLoginTextInput}
+        />
+        <label>Password</label>
+        <input
+          name="password"
+          placeholder="Enter your password"
+          required
+          value={userCredentials.password}
+          onChange={handleLoginTextInput}
+        />
+        <button type="submit" onClick={(e) => {
+          e.preventDefault();
+          logUserIn();
+          redirectToCoursePage()
+        }}>Sign In</button>
+        <button onClick={redirectToSignUpPage} type="button">Sign Up</button>
+      </form>
+    </div>
     );
 }

@@ -21,7 +21,10 @@ export default function CoursePage(){
 function createNewCourse(){
     createCourse(newCourse)
         .then((response) => response.json())
-        .then((data) => storeCourseId(data.id))
+        .then((data) => {
+            storeCourseId(data.id)
+            setCourseArray([...courseArray, data])
+        })
 }
 
 useEffect(() => {
