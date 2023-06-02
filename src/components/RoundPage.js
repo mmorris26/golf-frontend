@@ -1,16 +1,31 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { createRound } from "../apis/RoundApis";
 import { getUserIdFromStorage } from "../TokenLogic/tokenLogic";
+import { getCurrentCourse } from "../apis/CourseApis";
+import { storeCourseId, getCourseIdFromStorage } from "../apis/CourseApis";
 
 
 export default function RoundPage(){
+
+useEffect( () =>{
+
+    getCurrentCourse()
+        .then((response) => response.json())
+        .then((data) => {
+            storeCourseId(data.id)
+        })
+}, [] )
+
+
+
+ 
   const [newRound, setNewRound] = useState({
     date: "",
     holes: "",
     score: "",
     guestName: "",
     guestScore: "",
-    courseId: "",
+    courseId: getCourseIdFromStorage(),
     userId: getUserIdFromStorage()
   })  
 
@@ -19,10 +34,13 @@ export default function RoundPage(){
     console.log(newRound)
   }
 
+ 
+
   function createNewRound(){
     createRound(newRound)
         .then((round) => round.json())
         .then((data) => console.log(data))
+        console.log("State", newRound)
 
   }
     
