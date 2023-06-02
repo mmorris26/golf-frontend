@@ -4,8 +4,10 @@ export default function ListOfCourses(props){
     return(
 
         <>
+         <hr></hr>
         <h3>{props.name}</h3>
-        <p>{props.par}</p>
+        <p>Par: {props.par}</p>
+       
         </>
     );
 }

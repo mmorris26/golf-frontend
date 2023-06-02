@@ -4,6 +4,7 @@ import NavBar from './components/NavBar';
 import LoginPage from './components/LoginPage';
 import SignUpPage from './components/SignUpPage';
 import CoursePage from './components/CoursePage';
+import RoundPage from './components/RoundPage';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path='/' element={<LoginPage />} />
         <Route path='/SignUpPage' element={<SignUpPage />} />
         <Route path='/CoursePage' element={<CoursePage />} />
+        <Route path='/RoundPage' element={<RoundPage />} />
       </Routes>
     </div>
   );

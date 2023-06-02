@@ -5,7 +5,7 @@ import { createUser } from "../apis/UserApis";
 export default function SignUpPage(){
 
     const [newUser, setNewUser] = useState({
-        // name: "",
+        name: "",
         email: "",
         password: ""
     })
@@ -25,14 +25,14 @@ export default function SignUpPage(){
         <>
         <h1>Sign Up</h1>
         <form>
-        {/* <label>Name</label>
+        <label>Name</label>
                 <input
                     name="name"
                     placeholder="Enter your name"
                     required
                     value={newUser.name}
                     onChange={handleSignUpTextInput}
-                />  */}
+                /> 
             <label>Email</label>
                 <input
                     name="email"

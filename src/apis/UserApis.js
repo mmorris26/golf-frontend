@@ -17,3 +17,21 @@ export const createUser = (newUser) => {
       })
     })
   }
+
+  //login
+  export const authenticateUser = (userCredentials) => {
+    return fetch(`http://localhost:4000/login`, {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+      },
+      body: JSON.stringify({
+        user: {
+            email: `${userCredentials.email}`,
+            password: `${userCredentials.password}`,
+            
+        }
+      })
+    })
+  }
