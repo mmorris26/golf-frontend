@@ -5,6 +5,7 @@ import LoginPage from './components/LoginPage';
 import SignUpPage from './components/SignUpPage';
 import CoursePage from './components/CoursePage';
 import RoundPage from './components/RoundPage';
+import RoundSummaryPage from './components/RoundSummaryPage';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path='/SignUpPage' element={<SignUpPage />} />
         <Route path='/CoursePage' element={<CoursePage />} />
         <Route path='/RoundPage' element={<RoundPage />} />
+        <Route path='/RoundSummaryPage' element={<RoundSummaryPage />} />
       </Routes>
     </div>
   );

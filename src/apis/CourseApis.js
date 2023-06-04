@@ -6,7 +6,7 @@ export const getAllCourses = () => {
 
 // GET most recently created course
 export const getCurrentCourse = () => {
-    return fetch(`http://localhost:4000/courses/current`)
+    return fetch(`http://localhost:4000/courses/current_course`)
 }
 
 //create course
@@ -32,5 +32,16 @@ export const storeCourseId = (course) => {
 export const getCourseIdFromStorage = () => {
     return localStorage.getItem('courseId')
 }
+
+// update course 
+export const updateCourse = (id, updatedCourse) => {
+    return fetch(`http://localhost:4000/courses/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(updatedCourse)
+    })
+  }
 
 

@@ -10,6 +10,8 @@ export default function NavBar(){
             <Link to='CoursePage'>Course</Link>
             &nbsp; | &nbsp;
             <Link to='RoundPage'>Round</Link>
+            &nbsp; | &nbsp;
+            <Link to='RoundSummaryPage'>Round Summary</Link>
         </>
     );
 }
