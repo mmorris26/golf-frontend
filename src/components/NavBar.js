@@ -12,6 +12,8 @@ export default function NavBar(){
             <Link to='RoundPage'>Round</Link>
             &nbsp; | &nbsp;
             <Link to='RoundSummaryPage'>Round Summary</Link>
+            &nbsp; | &nbsp;
+            <Link to='SummaryPage'>Results</Link>
         </>
     );
 }

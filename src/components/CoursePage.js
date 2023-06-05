@@ -4,9 +4,12 @@ import { useEffect } from "react";
 import ListOfCourses from "./ListOfCourses";
 import { createCourse } from "../apis/CourseApis";
 import { storeCourseId } from "../apis/CourseApis";
+import { useNavigate } from "react-router-dom";
 
 export default function CoursePage(){
     
+    const navigate = useNavigate();
+
     const[newCourse, setNewCourse] = useState({
         name: "",
         par: ""
@@ -37,7 +40,10 @@ useEffect(() => {
         })
 }, []) 
   
-    
+function redirectToRoundPage(){
+    navigate('/RoundPage');
+}    
+
     return(
         <>
         <h1>Course</h1>
@@ -61,6 +67,7 @@ useEffect(() => {
             <button type="submit" onClick={(e) => {
             e.preventDefault();
             createNewCourse()
+            redirectToRoundPage()
           }}>Create Course</button>
         </form>
         <h1>Or Pick From Our List of Courses</h1>

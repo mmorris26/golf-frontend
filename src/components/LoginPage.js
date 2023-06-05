@@ -34,11 +34,13 @@ export default function LoginPage(){
     function redirectToCoursePage(){
         navigate('/CoursePage');
     }  
-    
 
     function redirectToSignUpPage(){
         navigate('/SignUpPage');
     }
+    
+
+   
 
     return(
         <div

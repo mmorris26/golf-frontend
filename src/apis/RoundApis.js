@@ -35,3 +35,10 @@ export const updateRound = (id, updatedRound) => {
       body: JSON.stringify(updatedRound)
     })
   }
+
+//delete round by ID
+export const deleteRound = (id) => {
+    return fetch(`http://localhost:4000/rounds/${id}`, {
+      method: 'DELETE'
+    })
+  }

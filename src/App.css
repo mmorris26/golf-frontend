@@ -9,3 +9,32 @@
 .edit-info{
   color: black;
 }
+
+.summary-table-container{
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* .summary-table{
+
+} */
+
+
+table {
+  border: 4px solid forestgreen;
+  width: 1000px;
+  height: 500px;
+}
+
+th {
+  border-bottom: 1px solid black;
+ 
+}
+
+td {
+  text-align: center;
+  
+}

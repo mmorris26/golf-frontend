@@ -44,4 +44,7 @@ export const updateCourse = (id, updatedCourse) => {
     })
   }
 
-
+//get courses and rounds
+export const getCourseRounds = () => {
+    return fetch(`http://localhost:4000/courses/rounds`)
+}

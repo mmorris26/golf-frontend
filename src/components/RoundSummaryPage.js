@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
 import { getCurrentCourse, updateCourse } from "../apis/CourseApis";
 import { getCurrentRound, updateRound } from "../apis/RoundApis";
+import { useNavigate } from "react-router-dom";
 
 
 export default function RoundPageSummary(){
+    
+    const navigate = useNavigate();
 
     const [currentCourse, setCurrentCourse] = useState({
         name: "",
@@ -19,8 +22,6 @@ export default function RoundPageSummary(){
     })
 
     const[editInformation, setEditInformation] = useState(false)
-
-
 
     useEffect(() => {
         getCurrentCourse()
@@ -70,6 +71,14 @@ export default function RoundPageSummary(){
             .then((data) => setCurrentRound(data))
     }
 
+    function redirectToRoundSummaryPage(){
+            window.location.reload();
+    }
+
+    function redirectToSummaryPage(){
+        navigate('/SummaryPage')
+    }
+
     return(
     <>
        <div className={ editInformation ? "no-edit" : "round-summary-form"}>
@@ -92,7 +101,7 @@ export default function RoundPageSummary(){
             </div>
             <div>
                 <button onClick={toggleEdit}>Edit</button>
-                <button>Submit</button>
+                <button onClick={redirectToSummaryPage}>Submit</button>
             </div>
        </div>
         
@@ -151,7 +160,11 @@ export default function RoundPageSummary(){
             </div>
             <div>
                 <button onClick={toggleEdit}>Edit</button>
-                <button onClick={updateInformation}>Submit</button>
+                <button onClick={(e) => {
+                        updateInformation();
+                        redirectToRoundSummaryPage()
+                    }}
+                >Submit</button>
             </div>
        </div>
     </>
@@ -159,3 +172,4 @@ export default function RoundPageSummary(){
     );
 
 }
+

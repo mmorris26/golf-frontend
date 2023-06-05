@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { createUser } from "../apis/UserApis";
+import { Navigate, useNavigate } from "react-router-dom";
 
 
 export default function SignUpPage(){
+
+    const navigate = useNavigate()
 
     const [newUser, setNewUser] = useState({
         name: "",
@@ -20,6 +23,10 @@ export default function SignUpPage(){
             .then((data) => console.log(data))
     }
     
+    function redirectToLoginPage(){
+        navigate('/');
+    }
+
     return(
         
         <>
@@ -52,6 +59,7 @@ export default function SignUpPage(){
             <button type="submit" onClick={(e) => {
             e.preventDefault();
             createNewUser();
+            redirectToLoginPage();
           }}>Sign Up</button>
         </form>
         
