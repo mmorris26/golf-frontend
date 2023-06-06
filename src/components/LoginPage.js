@@ -16,24 +16,28 @@ export default function LoginPage(){
 
     function handleLoginTextInput(e){
         setUserCredentials({ ...userCredentials, [e.target.name]: e.target.value });
+        console.log(userCredentials)
     }
 
     function logUserIn(){
         authenticateUser(userCredentials)
          .then((response) => {
             const token = response.headers.get("Authorization")
+            console.log('token ', token)
             storeToken(token)
+
             return response.json()
         })
          .then((data) => {
             storeUserIdLocally(data)
+            navigate('/CoursePage')
          })
          
     }
 
-    function redirectToCoursePage(){
-        navigate('/CoursePage');
-    }  
+    // function redirectToCoursePage(){
+    //     navigate('/CoursePage');
+    // }  
 
     function redirectToSignUpPage(){
         navigate('/SignUpPage');
@@ -76,7 +80,7 @@ export default function LoginPage(){
         <button type="submit" onClick={(e) => {
           e.preventDefault();
           logUserIn();
-          redirectToCoursePage()
+        //   redirectToCoursePage()
         }}>Sign In</button>
         <button onClick={redirectToSignUpPage} type="button">Sign Up</button>
       </form>

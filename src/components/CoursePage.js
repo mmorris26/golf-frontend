@@ -5,6 +5,7 @@ import ListOfCourses from "./ListOfCourses";
 import { createCourse } from "../apis/CourseApis";
 import { storeCourseId } from "../apis/CourseApis";
 import { useNavigate } from "react-router-dom";
+import { getPayloadFromToken } from "../TokenLogic/tokenLogic";
 
 export default function CoursePage(){
     
@@ -25,7 +26,8 @@ function createNewCourse(){
     createCourse(newCourse)
         .then((response) => response.json())
         .then((data) => {
-            storeCourseId(data.id)
+            console.log("returned created course ", data);
+            navigate('/RoundPage', { state: { id1: data.id, created: true } });
             setCourseArray([...courseArray, data])
         })
 }
@@ -47,6 +49,7 @@ function redirectToRoundPage(){
     return(
         <>
         <h1>Course</h1>
+        
         <form>
             <label>Course Name</label>
                 <input
@@ -73,7 +76,7 @@ function redirectToRoundPage(){
         <h1>Or Pick From Our List of Courses</h1>
           <div>
           {courseArray.map(course => (
-            <ListOfCourses key={course.id} name={course.name} par={course.par_score} />
+            <ListOfCourses key={course.id} id={course.id} name={course.name} par={course.par_score} />
           ))}
           </div>
         </>

@@ -1,11 +1,14 @@
+import { getTokenFromStorage } from "../TokenLogic/tokenLogic"
 
 // create a new round
 export const createRound = (newRound) => {
+  const token = getTokenFromStorage().replace(/"/g, '');
     return fetch(`http://localhost:4000/rounds`, {
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
         "Accept": "application/json",
+        'Authorization': token
       },
       body: JSON.stringify({
         
@@ -22,15 +25,23 @@ export const createRound = (newRound) => {
 
 //get the most recently created round
   export const getCurrentRound = () => {
-    return fetch(`http://localhost:4000/rounds/current_round`)
+    const token = getTokenFromStorage().replace(/"/g, '');
+    return fetch(`http://localhost:4000/rounds/current_round`, {
+      headers: {
+        "Authorization": token,
+      }
+
+    });
 }
 
 //update round
 export const updateRound = (id, updatedRound) => {
+  const token = getTokenFromStorage().replace(/"/g, '');
     return fetch(`http://localhost:4000/rounds/${id}`, {
       method: 'PATCH',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        "Authorization": token
       },
       body: JSON.stringify(updatedRound)
     })
@@ -38,7 +49,11 @@ export const updateRound = (id, updatedRound) => {
 
 //delete round by ID
 export const deleteRound = (id) => {
+  const token = getTokenFromStorage().replace(/"/g, '');
     return fetch(`http://localhost:4000/rounds/${id}`, {
-      method: 'DELETE'
+      method: 'DELETE',
+      headers: {
+        'Authorization': token
+      }
     })
   }

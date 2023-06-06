@@ -1,6 +1,19 @@
 import { Link, useNavigate } from 'react-router-dom'
+import { logOut } from '../apis/UserApis';
 
 export default function NavBar(){
+    
+    const navigate = useNavigate();
+
+    function logOutUser(){
+        logOut()
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data)
+                navigate('/')
+            })
+    }
+    
     return(
         <>
             <Link to='/'>Login</Link>
@@ -14,6 +27,8 @@ export default function NavBar(){
             <Link to='RoundSummaryPage'>Round Summary</Link>
             &nbsp; | &nbsp;
             <Link to='SummaryPage'>Results</Link>
+            &nbsp; | &nbsp;
+            <button onClick={logOutUser}>Log Out</button>
         </>
     );
 }

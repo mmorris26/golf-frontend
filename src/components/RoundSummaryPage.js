@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
-import { getCurrentCourse, updateCourse } from "../apis/CourseApis";
+import { getCurrentCourse, updateCourse, getCourseById } from "../apis/CourseApis";
 import { getCurrentRound, updateRound } from "../apis/RoundApis";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 
 export default function RoundPageSummary(){
     
     const navigate = useNavigate();
+    const location = useLocation();
+    // const courseId = location.state.courseId;
 
     const [currentCourse, setCurrentCourse] = useState({
         name: "",
@@ -23,21 +25,43 @@ export default function RoundPageSummary(){
 
     const[editInformation, setEditInformation] = useState(false)
 
+
     useEffect(() => {
-        getCurrentCourse()
+        if (location.state && location.state.courseId) {
+          getCourseById(location.state.courseId)
             .then((response) => response.json())
             .then((data) => {
-                console.log(data)
-                setCurrentCourse(data)
-            })
+              console.log(data);
+              setCurrentCourse(data);
+            });
+        }
+    
         getCurrentRound()
-            .then((response) => response.json())
-            .then((data) => {
-                console.log(data)
-                setCurrentRound(data)
-            })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            setCurrentRound(data);
+          });
+      }, [location.state]);
+
+
+
+    // useEffect(() => {
+    //     getCourseById(location.state.courseId)
+    //         .then((response) => response.json())
+    //         .then((data) => {
+    //             console.log(data)
+    //             setCurrentCourse(data)
+    //         })
+    //     getCurrentRound()
+    //         .then((response) => response.json())
+    //         .then((data) => {
+    //             console.log(data)
+    //             setCurrentRound(data)
+    //         })
                 
-    },[])
+    // },[])
+
 
     function toggleEdit(){
         setEditInformation(!editInformation)

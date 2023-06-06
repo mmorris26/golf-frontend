@@ -1,5 +1,5 @@
-
-
+import { getTokenFromStorage } from "../TokenLogic/tokenLogic"
+ 
 //create a new user
 export const createUser = (newUser) => {
     return fetch(`http://localhost:4000/signup`, {
@@ -28,10 +28,21 @@ export const createUser = (newUser) => {
       },
       body: JSON.stringify({
         user: {
-            email: `${userCredentials.email}`,
-            password: `${userCredentials.password}`,
+            email: userCredentials.email,
+            password: userCredentials.password,
             
         }
       })
+    })
+  }
+
+  //logout
+  export const logOut = () => {
+    const token = getTokenFromStorage().replace(/"/g, '');
+    return fetch(`http://localhost:4000/logout`, {
+      method: 'DELETE',
+      headers: {
+        "Authorization": token
+      }
     })
   }

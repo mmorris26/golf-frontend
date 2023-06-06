@@ -21,6 +21,7 @@ export default function SignUpPage(){
         createUser(newUser)
             .then((user) =>user.json())
             .then((data) => console.log(data))
+            .catch((error) => console.log(error))
     }
     
     function redirectToLoginPage(){

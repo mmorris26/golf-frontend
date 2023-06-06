@@ -34,6 +34,9 @@ export default function SummaryPage(){
    ); 
 
    function deleteRoundFromTable(index) {
+
+    
+
     const updatedSummaryArray = [...summaryArray];
     const flatSummaryArray = updatedSummaryArray.flatMap((course) =>
       course.rounds.map((round) => ({
@@ -63,22 +66,14 @@ export default function SummaryPage(){
   
     // Update the state with the modified summaryArray
     setSummaryArray(updatedSummaryArray);
+
+    deleteRound(roundToDelete.id)
+        .then((response) => response.json())
+        .then((data) => console.log(data))
+        .catch((error) => console.log(error))
+     
   }
-
-
-
-
-
-
-//    function deleteRoundFromTable(index){
-//     console.log("flat", flatSummaryArray)
-//     console.log("index", index)
-//     const id = flatSummaryArray[index].id
-//     deleteRound(id)
-//     // flatSummaryArray.splice(index, 1)
-
-//    }
- 
+    
 
 return (
 <div className="summary-table-container">
@@ -107,6 +102,7 @@ return (
             <td><button onClick={(e) => {
                 e.preventDefault();
                 deleteRoundFromTable(index);
+                
                 }
             }>Forget?</button></td>
           </tr>
