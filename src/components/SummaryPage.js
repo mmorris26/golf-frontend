@@ -2,6 +2,7 @@ import { useState } from "react";
 import { getCourseRounds } from "../apis/CourseApis";
 import { useEffect } from "react";
 import { deleteRound } from "../apis/RoundApis";
+import { getAllRounds } from "../apis/RoundApis";
 
 export default function SummaryPage(){
 
@@ -10,6 +11,12 @@ export default function SummaryPage(){
         par_score: "",
         rounds: []
    }])
+
+   const[handicap, setHandicap] = useState();
+
+   useEffect(() => {
+    calculateHandicap();
+  }, []);
     
    useEffect(() => {
         getCourseRounds()
@@ -34,8 +41,6 @@ export default function SummaryPage(){
    ); 
 
    function deleteRoundFromTable(index) {
-
-    
 
     const updatedSummaryArray = [...summaryArray];
     const flatSummaryArray = updatedSummaryArray.flatMap((course) =>
@@ -75,8 +80,36 @@ export default function SummaryPage(){
   }
     
 
+  function calculateHandicap() {
+    getAllRounds()
+      .then((response) => response.json())
+      .then((data) => {
+        const scoresArray = data.data;
+        let totalScore = 0;
+        scoresArray.forEach((score) => {
+          const scoreNum = parseInt(score.score); 
+          if (!isNaN(scoreNum)) {
+            totalScore += scoreNum;
+          }
+        });
+        const average = totalScore / scoresArray.length;
+        setHandicap(average);
+      })
+      .catch((error) => {
+        console.error('Error calculating average score:', error);
+      });
+  }
+  
+
+
 return (
+    <>
+   <div>
+   <h2>Handicap</h2>
+    <h3>{handicap}</h3>
+   </div>
 <div className="summary-table-container">
+    
     <div className="summary-table">
     <table>
       <thead>
@@ -111,6 +144,7 @@ return (
     </table>
   </div>
   </div>
+  </>
 );
 
    

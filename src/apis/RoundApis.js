@@ -57,3 +57,14 @@ export const deleteRound = (id) => {
       }
     })
   }
+
+  //get all rounds
+  export const getAllRounds = () => {
+    const token = getTokenFromStorage().replace(/"/g, '');
+      return fetch(`http://localhost:4000/rounds`, {
+        headers: {
+          "Authorization": token,
+        }
+  
+      });
+  }
