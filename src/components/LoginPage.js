@@ -59,31 +59,45 @@ export default function LoginPage(){
         flexDirection: 'column',
       }}
     >
-      <h1>Login</h1>
+    
+      <h1><b>Login</b></h1>
+      <div className="login-page-div">
       <form>
-        <label>Email</label>
-        <input
-          name="email"
-          placeholder="Enter your email address"
-          required
-          value={userCredentials.email}
-          onChange={handleLoginTextInput}
-        />
-        <label>Password</label>
-        <input
-          name="password"
-          placeholder="Enter your password"
-          required
-          value={userCredentials.password}
-          onChange={handleLoginTextInput}
-        />
-        <button type="submit" onClick={(e) => {
-          e.preventDefault();
-          logUserIn();
-        //   redirectToCoursePage()
-        }}>Sign In</button>
-        <button onClick={redirectToSignUpPage} type="button">Sign Up</button>
+        <div className="login-email-label">
+            <label><b>Email</b></label>
+        </div>
+        <div className="login-email-input">
+            <input
+            name="email"
+            // placeholder="Enter your email address"
+            required
+            value={userCredentials.email}
+            onChange={handleLoginTextInput}
+            
+            />
+        </div>
+        <div className="login-password-label">
+            <label><b>Password</b></label>
+        </div>
+        <div className="login-password-input">
+            <input
+            name="password"
+            // placeholder="Enter your password"
+            required
+            value={userCredentials.password}
+            onChange={handleLoginTextInput}
+            />
+        </div>
+        <div className="login-buttons">
+            <button type="submit" class="btn btn-success" onClick={(e) => {
+            e.preventDefault();
+            logUserIn();
+            //   redirectToCoursePage()
+            }}>Sign In</button>
+            <button onClick={redirectToSignUpPage} type="button" class="btn btn-success">Sign Up</button>
+        </div>
       </form>
+      </div>
     </div>
     );
 }
