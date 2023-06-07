@@ -64,11 +64,15 @@ export default function RoundPage(){
     
     return(
         <>
-    
-        <h1>Round</h1>
-        <h3>Enter Information About Your Round</h3>
+  <div className="round-page-container-div"> 
+    <h1>Round</h1>
+    <h1>Enter Information About Your Round</h1>
         <form>
+        <div className="create-course-div">
+        <div className="round-labels">
             <label>Date</label>
+        </div>
+        <div className="round-inputs">
                 <input
                     name="date"
                     placeholder="What date did you play on?"
@@ -76,7 +80,11 @@ export default function RoundPage(){
                     value={newRound.date}
                     onChange={handleRoundTextInput}
                 /> 
+        </div>
+        <div className="round-labels">
             <label>Holes</label>
+        </div>
+        <div className="round-inputs">
                 <input
                     name="holes"
                     placeholder="How many holes was it?"
@@ -84,7 +92,11 @@ export default function RoundPage(){
                     value={newRound.holes}
                     onChange={handleRoundTextInput}
                 />
+        </div>
+        <div className="round-labels">
             <label>Score</label>
+        </div>
+        <div className="round-inputs">
                 <input
                     name="score"
                     placeholder="What did you shoot?"
@@ -92,9 +104,15 @@ export default function RoundPage(){
                     value={newRound.score}
                     onChange={handleRoundTextInput}
                 />
-        <div>
+        </div>
+        </div>
+        
         <h1>Who Did you play With?</h1>
-            <label>Guest Name</label>
+        <div className="round-guest-div">
+            <div className="round-labels">
+                <label>Guest Name</label>
+            </div>
+            <div className="round-inputs">
                 <input
                     name="guestName"
                     placeholder="Enter your guests name"
@@ -102,7 +120,11 @@ export default function RoundPage(){
                     value={newRound.guestName}
                     onChange={handleRoundTextInput}
                 />
-            <label>Score</label>
+            </div>
+            <div className="round-labels">
+                <label>Score</label>
+            </div>
+            <div className="round-inputs">
                 <input
                     name="guestScore"
                     placeholder="Enter your guests score"
@@ -110,8 +132,9 @@ export default function RoundPage(){
                     value={newRound.guestScore}
                     onChange={handleRoundTextInput}
                 />
+            </div>
         </div>
-            <button type="submit" onClick={(e) => {
+            <button type="submit" className="btn btn-warning round-button" onClick={(e) => {
             e.preventDefault();
             createNewRound();
             // redirectToRoundSummaryPage();
@@ -121,8 +144,9 @@ export default function RoundPage(){
         
 
 
-        
+        </div>  
         </>
+        
     );
 
 }

@@ -15,6 +15,7 @@ export default function NavBar(){
     }
     
     return(
+    <div className='nav-bar'>
         <>
         <div className="nav-bar-elements">
             <Link to='/'>Login</Link>
@@ -29,8 +30,9 @@ export default function NavBar(){
             &nbsp; | &nbsp;
             <Link to='SummaryPage'>Results</Link>
             &nbsp; | &nbsp;
-            <button onClick={logOutUser} class="btn btn-warning">Log Out</button>
+            <button onClick={logOutUser} className="btn btn-warning">Log Out</button>
         </div>
         </>
+        </div>
     );
 }

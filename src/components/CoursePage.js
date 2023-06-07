@@ -48,10 +48,14 @@ function redirectToRoundPage(){
 
     return(
         <>
-        <h1>Course</h1>
-        
+        <div className="course-page-div">
+        <h1>Create a Course</h1>
+        <div className="create-course-div">
         <form>
-            <label>Course Name</label>
+            <div className="login-email-label">
+                <label>Course Name</label>
+            </div>
+            <div className="login-email-input">
                 <input
                     name="name"
                     placeholder="Enter the Course name"
@@ -59,7 +63,11 @@ function redirectToRoundPage(){
                     value={newCourse.name}
                     onChange={handleCourseTextInput}
                 /> 
-            <label>Par</label>
+            </div>
+            <div className="login-email-label">
+                <label>Par</label>
+            </div>
+            <div className="login-email-input">
                 <input
                     name="par"
                     placeholder="What is par for this course"
@@ -67,14 +75,18 @@ function redirectToRoundPage(){
                     value={newCourse.par}
                     onChange={handleCourseTextInput}
                 /> 
-            <button type="submit" onClick={(e) => {
+            </div>
+            <button type="submit" className="btn btn-warning" onClick={(e) => {
             e.preventDefault();
             createNewCourse()
             redirectToRoundPage()
           }}>Create Course</button>
         </form>
+        </div>
+        <hr></hr>
         <h1>Or Pick From Our List of Courses</h1>
-          <div>
+        </div>
+          <div className="course-boxes">
           {courseArray.map(course => (
             <ListOfCourses key={course.id} id={course.id} name={course.name} par={course.par_score} />
           ))}

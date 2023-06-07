@@ -45,24 +45,6 @@ export default function RoundPageSummary(){
       }, [location.state]);
 
 
-
-    // useEffect(() => {
-    //     getCourseById(location.state.courseId)
-    //         .then((response) => response.json())
-    //         .then((data) => {
-    //             console.log(data)
-    //             setCurrentCourse(data)
-    //         })
-    //     getCurrentRound()
-    //         .then((response) => response.json())
-    //         .then((data) => {
-    //             console.log(data)
-    //             setCurrentRound(data)
-    //         })
-                
-    // },[])
-
-
     function toggleEdit(){
         setEditInformation(!editInformation)
     }
@@ -105,6 +87,8 @@ export default function RoundPageSummary(){
 
     return(
     <>
+    <div className="round-summary-div">
+    <div className="round-summary-box-div">
        <div className={ editInformation ? "no-edit" : "round-summary-form"}>
             <h1>Please Confirm This is the Data You Want to Enter</h1>
             <div>
@@ -128,7 +112,11 @@ export default function RoundPageSummary(){
                 <button onClick={redirectToSummaryPage}>Submit</button>
             </div>
        </div>
-        
+
+    
+      
+      
+      
        <div className={ editInformation ? "edit-info" : "no-edit"}>
        <h1>Edit Your Information then Click Submit</h1>
             <div>
@@ -190,6 +178,8 @@ export default function RoundPageSummary(){
                     }}
                 >Submit</button>
             </div>
+       </div>
+      </div>
        </div>
     </>
 

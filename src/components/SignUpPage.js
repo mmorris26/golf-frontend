@@ -43,11 +43,11 @@ export default function SignUpPage(){
         }}
       >
        
-        <h1>Sign Up</h1>
+        <h1><b>Sign Up</b></h1>
         <div className="signup-page-div">
         <form>
         <div className="login-email-label">
-            <label>Name</label>
+            <label><b>Name</b></label>
         </div>
         <div className="login-email-input">
                 <input
@@ -59,7 +59,7 @@ export default function SignUpPage(){
                     /> 
             </div>
             <div className="login-email-label">
-            <label>Email</label>
+            <label><b>Email</b></label>
             </div>
             <div className="login-email-input">
                 <input
@@ -71,7 +71,7 @@ export default function SignUpPage(){
                 /> 
             </div>
             <div className="login-email-label">
-            <label>Password</label>
+            <label><b>Password</b></label>
             </div>
             <div className="login-email-input">
                 <input
@@ -82,7 +82,7 @@ export default function SignUpPage(){
                     onChange={handleSignUpTextInput}
                 />
             </div>
-            <button type="submit" class="btn btn-success" onClick={(e) => {
+            <button type="submit" className="btn btn-warning" onClick={(e) => {
             e.preventDefault();
             createNewUser();
             redirectToLoginPage();

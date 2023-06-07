@@ -89,12 +89,12 @@ export default function LoginPage(){
             />
         </div>
         <div className="login-buttons">
-            <button type="submit" class="btn btn-success" onClick={(e) => {
+            <button type="submit" className="btn btn-warning" onClick={(e) => {
             e.preventDefault();
             logUserIn();
             //   redirectToCoursePage()
             }}>Sign In</button>
-            <button onClick={redirectToSignUpPage} type="button" class="btn btn-success">Sign Up</button>
+            <button onClick={redirectToSignUpPage} type="button" className="btn btn-warning">Sign Up</button>
         </div>
       </form>
       </div>

@@ -19,14 +19,31 @@ const toRoundPage =()=>{
 
     return(
 
-        <>
-        <div className="single-course">
-            <a onClick={()=>{toRoundPage()}}>
-                <hr></hr>
-                <h3>{props.name}</h3>
-                <p>Par: {props.par}</p>
-            </a>
+        <div>
+  <>
+    <div className="single-course">
+      <a onClick={() => { toRoundPage() }}>
+        <div className="course-info">
+          <img src="https://clipart-library.com/images_k/red-flag-transparent-background/red-flag-transparent-background-11.png" alt="Course Image" className="course-image" /> {/* Add the image source and alt attribute */}
+          <div className="course-details">
+            <h2>{props.name}</h2>
+            <h4>Par: {props.par}</h4>
+          </div>
         </div>
-        </>
+      </a>
+    </div>
+  </>
+</div>
+        
+        
+        // <>
+        // <div className="single-course">
+        //     <a onClick={()=>{toRoundPage()}}>
+                
+        //         <h3>{props.name}</h3>
+        //         <p>Par: {props.par}</p>
+        //     </a>
+        // </div>
+        // </>
     );
 }

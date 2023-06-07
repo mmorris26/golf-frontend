@@ -1,12 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
 .App {
   text-align: center;
-  background: forestgreen;
-  color: yellow;
-  font-family: Perpetua, serif;
+  background: #007f5f;
+  color: #ffff3f;
+  font-family: 'Josefin Sans', sans-serif;
 }
-
+ /* box shadow on all inputs box shadow  0 0 10 black*/
+ /* different fonts for text and body */
+ /* change background of  course divs */
 .no-edit{
   display: none;
+}
+
+label {
+  color: #ffff3f;
 }
 
 .edit-info{
@@ -43,6 +51,7 @@ td {
 
 .login-page-div{
   color: yellow;
+  background-color: rgba(20, 164, 61, 0.3);
   border:  4px solid;
   height: 20rem;
   width: 40rem;
@@ -106,4 +115,167 @@ a:hover {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+/* course page div */
+
+.course-page-div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: bold;
+  margin-top: 2rem;
+  
+}
+
+.single-course{
+  padding: 2rem 0;
+  margin: 2rem;
+  border: solid;
+  border-color: yellow;
+  border-radius: 1rem;
+  transition: transform 0.3s ease;
+  box-shadow: 0 0 15px;
+  background-color: #55a630;
+}
+
+.single-course:hover {
+  transform: scale(1.05); 
+  background-color: #2b9348;
+}
+
+.course-boxes{
+  display: grid;
+  grid-template-columns: 0.5fr 0.5fr ;
+  margin: 2rem;
+}
+
+.course-info {
+  display: flex;
+  align-items: center;
+}
+
+.course-image {
+  width: 33.33%; 
+  max-width: 100px;
+  margin-right: 20px; 
+}
+
+.course-details {
+  flex: 1; 
+  text-align: left;
+}
+
+.create-course-div{
+  color: yellow;
+  background-color: rgba(122, 96, 9, 0.3);
+  border:  4px solid;
+  height: 20rem;
+  width: 40rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  box-shadow: 0 0 15px;
+}
+
+/* round page styling */
+
+.round-page-container-div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.round-page-round-div{
+  border: solid;
+  border-color: yellow;
+
+}
+
+.round-guest-div{
+  color: yellow;
+  background-color: rgba(122, 96, 9, 0.3);
+  border:  4px solid;
+  height: 15rem;
+  width: 40rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  box-shadow: 0 0 15px;
+}
+
+.round-labels label{
+  display: flex;
+  align-content: start;
+  font-size: 25px;
+}
+
+.round-inputs input{
+  margin-bottom: 1.25rem;
+  width: 30rem;
+  border-radius: 0.5rem;
+  height:2.5rem;
+  background-color: lightgreen;
+  color: red;
+  font-weight: bold;
+
+}
+
+.round-button{
+  width: 10rem;
+  margin-bottom:7rem;
+}
+
+/* Nav bar styling */
+
+.nav-bar{
+  background-color: #dddf00;
+  color: #2b9348;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.nav-bar-elements{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-right: 1rem;
+}
+
+.nav-bar-elements a {
+  flex: 1;
+  text-align: center;
+}
+
+nav.nav-bar-elements button {
+  flex: 1;
+  text-align: center;
+}
+
+/* round summary styling */
+
+.round-summary-div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.round-summary-box-div{
+  border: solid;
+  border:  4px solid;
+  height: 30rem;
+  width: 50rem;
+  padding: 0.5rem;
+  margin: 2rem;
 }
