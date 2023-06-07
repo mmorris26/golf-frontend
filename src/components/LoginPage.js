@@ -69,7 +69,7 @@ export default function LoginPage(){
         <div className="login-email-input">
             <input
             name="email"
-            // placeholder="Enter your email address"
+            placeholder="Enter your email address"
             required
             value={userCredentials.email}
             onChange={handleLoginTextInput}
@@ -82,7 +82,7 @@ export default function LoginPage(){
         <div className="login-password-input">
             <input
             name="password"
-            // placeholder="Enter your password"
+            placeholder="Enter your password"
             required
             value={userCredentials.password}
             onChange={handleLoginTextInput}

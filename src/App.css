@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
 
 .App {
   text-align: center;
@@ -9,25 +9,42 @@
  /* box shadow on all inputs box shadow  0 0 10 black*/
  /* different fonts for text and body */
  /* change background of  course divs */
-.no-edit{
+/* .no-edit{
   display: none;
+
 }
+
+
 
 label {
   color: #ffff3f;
 }
 
 .edit-info{
-  color: black;
+  /* color: black; */
+  color: #ffff3f;
+}
+
+.edit-info input {
+  border-radius: 0.5rem;
 }
 
 /* table styling */
+
+th {
+  border-bottom: 1px solid black;
+  height: 3rem;
+ 
+}
 .summary-table-container{
+ 
   margin: 0 auto;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: white
+
 }
 
 table {
@@ -36,9 +53,14 @@ table {
   height: 500px;
 }
 
-th {
-  border-bottom: 1px solid black;
- 
+
+
+.summary-table tbody tr:nth-child(odd) {
+  background-color: #80b918; 
+}
+
+.summary-table tbody tr:nth-child(even) {
+  background-color: #55a630; 
 }
 
 td {
@@ -47,11 +69,20 @@ td {
   
 }
 
+thead{
+  background-color: #ffff3f;
+  color:#007f5f
+}
+
+.handicap{
+  margin-top: 2rem;
+}
+
 /* login page styling */
 
 .login-page-div{
   color: yellow;
-  background-color: rgba(20, 164, 61, 0.3);
+  background-color: rgba(122, 96, 9, 0.3);
   border:  4px solid;
   height: 20rem;
   width: 40rem;
@@ -60,6 +91,7 @@ td {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 0 15px;
 }
 
 .login-email-label, .login-password-label{
@@ -74,7 +106,7 @@ td {
   width: 30rem;
   border-radius: 0.5rem;
   height:2.5rem;
-  background-color: lightgreen;
+  background-color: white;
   color: red;
   font-weight: bold;
 }
@@ -115,6 +147,8 @@ a:hover {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: rgba(122, 96, 9, 0.3);
+  box-shadow: 0 0 15px;
 }
 
 /* course page div */
@@ -222,7 +256,7 @@ a:hover {
   width: 30rem;
   border-radius: 0.5rem;
   height:2.5rem;
-  background-color: lightgreen;
+  background-color: white;
   color: red;
   font-weight: bold;
 
@@ -269,13 +303,224 @@ nav.nav-bar-elements button {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #007f5f;
+  min-height: 100vh;
+  margin: 0 auto;
 }
 
 .round-summary-box-div{
   border: solid;
   border:  4px solid;
-  height: 30rem;
+  height: 33rem;
   width: 50rem;
   padding: 0.5rem;
   margin: 2rem;
+
 }
+
+
+
+.course-info, .course-values {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-bottom: 2rem;
+ 
+}
+
+.round-summary-div button{
+  width: 10rem;
+}
+
+.edit-button{
+  margin-right: 5rem;
+}
+
+.round-summary-edit-course,
+.round-summary-edit-round,
+.round-summary-edit-guest{
+  margin-bottom: 3rem; 
+
+  
+}
+
+.round-summary-edit-course label,
+.round-summary-edit-round label,
+.round-summary-edit-guest label{
+  font-size: x-large;
+}
+
+.round-summary-edit-course input,
+.round-summary-edit-round input,
+.round-summary-edit-guest input{
+  width: 8rem;
+} 
+
+
+ */
+
+
+
+
+
+
+
+ @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+.App {
+  text-align: center;
+  background: #007f5f;
+  color: #ffff3f;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+/* Add responsive styles */
+@media screen and (max-width: 768px) {
+  .summary-table-container {
+    min-height: auto;
+  }
+
+  table {
+    width: 90%;
+    height: auto;
+    overflow-x: auto;
+  }
+
+  .course-boxes {
+    grid-template-columns: 1fr;
+  }
+  
+  .login-page-div,
+  .signup-page-div,
+  .create-course-div,
+  .round-guest-div,
+  .round-summary-box-div {
+    width: 90%;
+  }
+}
+
+/* box shadow on all inputs box shadow  0 0 10 black*/
+/* different fonts for text and body */
+/* change background of  course divs */
+.no-edit {
+  display: none;
+}
+
+label {
+  color: #ffff3f;
+}
+
+.edit-info {
+  /* color: black; */
+  color: #ffff3f;
+}
+
+.edit-info input {
+  border-radius: 0.5rem;
+}
+
+/* table styling */
+
+th {
+  border-bottom: 1px solid black;
+  height: 3rem;
+}
+
+.summary-table-container {
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+table {
+  border: 4px solid forestgreen;
+  width: 1000px;
+  height: 500px;
+}
+
+.summary-table tbody tr:nth-child(odd) {
+  background-color: #80b918;
+}
+
+.summary-table tbody tr:nth-child(even) {
+  background-color: #55a630;
+}
+
+td {
+  text-align: center;
+  border-bottom: 1px lightgray;
+}
+
+thead {
+  background-color: #ffff3f;
+  color: #007f5f;
+}
+
+.handicap {
+  margin-top: 2rem;
+}
+
+/* login page styling */
+
+.login-page-div {
+  color: yellow;
+  background-color: rgba(122, 96, 9, 0.3);
+  border: 4px solid;
+  height: 20rem;
+  width: 40rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 15px;
+}
+
+.login-email-label,
+.login-password-label {
+  display: flex;
+  align-content: space-between;
+  font-size: 25px;
+}
+
+.login-email-input input,
+.login-password-input input {
+  margin-bottom: 3rem;
+  width: 30rem;
+  border-radius: 0.5rem;
+  height: 2.5rem;
+  background-color: white;
+  color: red;
+  font-weight: bold;
+}
+
+.login-buttons {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav-bar-elements {
+  font-size: large;
+  font-weight: bold;
+}
+
+/* sign up page styling */
+
+.signup-page-div {
+  color: yellow;
+  border:
+

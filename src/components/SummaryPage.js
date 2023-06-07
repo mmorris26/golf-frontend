@@ -104,7 +104,7 @@ export default function SummaryPage(){
 
 return (
     <>
-   <div>
+   <div className="handicap">
    <h2>Handicap</h2>
     <h3>{handicap}</h3>
    </div>
@@ -132,7 +132,7 @@ return (
             <td>{data.score}</td>
             <td>{data.guestName}</td>
             <td>{data.guestScore}</td>
-            <td><button onClick={(e) => {
+            <td><button className="btn btn-warning" onClick={(e) => {
                 e.preventDefault();
                 deleteRoundFromTable(index);
                 

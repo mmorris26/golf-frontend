@@ -91,25 +91,33 @@ export default function RoundPageSummary(){
     <div className="round-summary-box-div">
        <div className={ editInformation ? "no-edit" : "round-summary-form"}>
             <h1>Please Confirm This is the Data You Want to Enter</h1>
-            <div>
-                <h3>Course</h3>
-                    <h6>Name: {currentCourse.name}</h6> 
-                    <h6>Par: {currentCourse.par_score}</h6>
-            </div>
+        <div>
+            <h3>Course</h3>
+                <div className="course-info">
+                    <h4><span class="name">Name:</span> {currentCourse.name}</h4>
+                    <h4>Par: {currentCourse.par_score}</h4>
+                </div>
+                
+        </div>
             <div>
                 <h3>Round</h3>
-                    <h6>Date: {currentRound.date} </h6>
-                    <h6>Number Of Holes: {currentRound.number_of_holes} </h6>
-                    <h6>Score: {currentRound.score} </h6>
+                <div className="course-info">
+                    <h4>Date: {currentRound.date}</h4>
+                    <h4>Number Of Holes: {currentRound.number_of_holes} </h4>
+                    <h4>Score: {currentRound.score}</h4>
+                </div>
+                
             </div>
             <div>
                 <h3>Guest</h3>
-                    <h6>Name: {currentRound.guest_name} </h6>
-                    <h6>Score: {currentRound.guest_score} </h6>
+                <div className="course-info">
+                    <h4>Name: {currentRound.guest_name} </h4>
+                    <h4>Score: {currentRound.guest_score} </h4>
+                    </div>
             </div>
             <div>
-                <button onClick={toggleEdit}>Edit</button>
-                <button onClick={redirectToSummaryPage}>Submit</button>
+                <button onClick={toggleEdit} className="btn btn-warning edit-button">Edit</button>
+                <button onClick={redirectToSummaryPage} className="btn btn-warning">Submit</button>
             </div>
        </div>
 
@@ -119,7 +127,7 @@ export default function RoundPageSummary(){
       
        <div className={ editInformation ? "edit-info" : "no-edit"}>
        <h1>Edit Your Information then Click Submit</h1>
-            <div>
+            <div className="round-summary-edit-course">
                 <h3>Course</h3>
                     <label>Name</label>
                     <input
@@ -134,7 +142,7 @@ export default function RoundPageSummary(){
                         onChange={handleEditCourseTextInput}
                     /> 
             </div>
-            <div>
+            <div className="round-summary-edit-round">
                 <h3>Round</h3>
                 <label>Date</label>
                     <input
@@ -155,7 +163,7 @@ export default function RoundPageSummary(){
                         onChange={handleEditRoundTextInput}
                     /> 
             </div>
-            <div>
+            <div className="round-summary-edit-guest">
                 <h3>Guest</h3>
                 <label>Name</label>
                     <input
@@ -171,8 +179,8 @@ export default function RoundPageSummary(){
                     /> 
             </div>
             <div>
-                <button onClick={toggleEdit}>Edit</button>
-                <button onClick={(e) => {
+                <button onClick={toggleEdit} className="btn btn-warning edit-button">Edit</button>
+                <button className="btn btn-warning" onClick={(e) => {
                         updateInformation();
                         redirectToRoundSummaryPage()
                     }}
