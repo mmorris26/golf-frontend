@@ -89,10 +89,10 @@ thead{
 
 /* login page styling */
 
-.login-page-div{
+.login-page-div {
   color: yellow;
   background-color: rgba(122, 96, 9, 0.3);
-  border:  4px solid;
+  border: 4px solid;
   height: 20rem;
   width: 40rem;
   border-radius: 1rem;
@@ -103,52 +103,87 @@ thead{
   box-shadow: 0 0 15px;
 }
 
-.login-email-label, .login-password-label{
+@media (max-width: 768px) {
+  .login-page-div {
+    width: 90%;
+    height: auto;
+    padding: 2rem;
+  }
+}
+
+.login-email-label,
+.login-password-label {
   display: flex;
   align-content: space-between;
   font-size: 25px;
 }
 
-.login-email-input input, 
-.login-password-input  input {
-  margin-bottom: 3rem;
-  width: 30rem;
+.login-email-input input,
+.login-password-input input {
+  margin-bottom: 2rem;
+  width: 100%;
+  max-width: 30rem;
   border-radius: 0.5rem;
-  height:2.5rem;
+  height: 2.5rem;
   background-color: white;
   color: red;
   font-weight: bold;
 }
 
+@media (min-width: 768px) {
+  .login-email-input input,
+  .login-password-input input {
+    width: 30rem;
+    max-width: 100%;
+  }
+}
 
+@media (min-width: 1200px) {
+  .login-email-input input,
+  .login-password-input input {
+    width: 40rem;
+  }
+}
 
-.login-buttons{
+.login-buttons {
   display: flex;
-  justify-content: space-between;
-  border-radius: 1rem;
-  
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .login-buttons {
+    flex-direction: row;
+  }
 }
 
 a {
-  text-decoration: none; 
+  text-decoration: none;
   color: inherit;
 }
 
 a:hover {
-  text-decoration: none; 
-  color: inherit; 
+  text-decoration: none;
+  color: inherit;
 }
 
-.nav-bar-elements{
+.nav-bar-elements {
   font-size: large;
   font-weight: bold;
 }
 
+
+
+
+
+
+
 /* sign up page styling */
 
-.signup-page-div{
+.signup-page-div {
   color: yellow;
-  border:  4px solid;
+  border: 4px solid;
   height: 30rem;
   width: 40rem;
   border-radius: 1rem;
@@ -159,6 +194,21 @@ a:hover {
   background-color: rgba(122, 96, 9, 0.3);
   box-shadow: 0 0 15px;
 }
+
+@media (max-width: 768px) {
+  .signup-page-div {
+    width: 90%; 
+    height: auto; 
+    padding: 2rem; 
+  }
+}
+
+@media (max-width: 480px) {
+  .signup-page-div {
+    font-size: 16px;
+  }
+}
+
 
 /* course page div */
 
@@ -297,33 +347,34 @@ a:hover {
 
 /* Nav bar styling */
 
-.nav-bar{
+.nav-bar {
   background-color: #dddf00;
   color: #2b9348;
   height: 3rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-
+  justify-content: space-evenly;
 }
 
-.nav-bar-elements{
+.nav-bar-elements {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  width: 100%;
-  margin-right: 1rem;
+  justify-content: space-between;
 }
 
-.nav-bar-elements a {
+.nav-bar-elements a,
+.nav-bar-elements button {
   flex: 1;
   text-align: center;
 }
 
-nav.nav-bar-elements button {
-  flex: 1;
-  text-align: center;
+@media (max-width: 768px) {
+  .nav-bar-elements a,
+  .nav-bar-elements button {
+    font-size: 12px; /* Adjust the font size to make the elements smaller */
+  }
 }
+
 
 /* round summary styling */
 
