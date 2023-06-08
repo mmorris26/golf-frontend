@@ -18,7 +18,7 @@ const toRoundPage =()=>{
     <div className="single-course">
       <div onClick={() => { toRoundPage() }}>
         <div className="course-info">
-          <img src="https://clipart-library.com/images_k/red-flag-transparent-background/red-flag-transparent-background-11.png" className="course-image" /> 
+          <img src="https://clipart-library.com/images_k/red-flag-transparent-background/red-flag-transparent-background-11.png" alt="course" className="course-image" /> 
           <div className="course-details">
             <h2>{props.name}</h2>
             <h4>Par: {props.par}</h4>

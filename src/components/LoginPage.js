@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { authenticateUser } from "../apis/UserApis";
-import { storeToken, getTokenFromStorage, storeUserIdLocally, getUserIdFromStorage } from "../TokenLogic/tokenLogic";
+import { storeToken, storeUserIdLocally } from "../TokenLogic/tokenLogic";
 
 
 export default function LoginPage(){

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { createUser } from "../apis/UserApis";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 export default function SignUpPage(){
