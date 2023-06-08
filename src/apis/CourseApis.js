@@ -1,11 +1,11 @@
 import { getTokenFromStorage } from "../TokenLogic/tokenLogic"
-
+import { apiUrl } from "./apiConfig";
 
 // INDEX route for courses
 export const getAllCourses = () => {
   const token = getTokenFromStorage().replace(/"/g, '');
   console.log("token for index call ", token);
-    return fetch(`http://localhost:4000/courses`, {
+    return fetch(`${apiUrl}courses`, {
       headers: {
         "Authorization": token,
       }
@@ -16,7 +16,7 @@ export const getAllCourses = () => {
 // GET most recently created course
 export const getCurrentCourse = () => {
   const token = getTokenFromStorage().replace(/"/g, '');
-  return fetch(`http://localhost:4000/courses/current_course`, {
+  return fetch(`${apiUrl}current_course`, {
     headers: {
       "Authorization": token
     }
@@ -27,7 +27,7 @@ export const getCurrentCourse = () => {
 //create course
 export const createCourse = (newCourse) => {
   const token = getTokenFromStorage().replace(/"/g, '');
-    return fetch(`http://localhost:4000/courses`, {
+    return fetch(`${apiUrl}courses`, {
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
@@ -54,7 +54,7 @@ export const getCourseIdFromStorage = () => {
 // update course 
 export const updateCourse = (id, updatedCourse) => {
   const token = getTokenFromStorage().replace(/"/g, '');
-    return fetch(`http://localhost:4000/courses/${id}`, {
+    return fetch(`${apiUrl}courses/${id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -67,7 +67,7 @@ export const updateCourse = (id, updatedCourse) => {
 //get courses and rounds
 export const getCourseRounds = () => {
   const token = getTokenFromStorage().replace(/"/g, '');
-  return fetch(`http://localhost:4000/courses/rounds`, {
+  return fetch(`${apiUrl}courses/rounds`, {
     headers: {
       "Authorization": token,
     }
@@ -78,9 +78,20 @@ export const getCourseRounds = () => {
 //get course by Id
 export const getCourseById = (id) => {
   const token = getTokenFromStorage().replace(/"/g, '');
-    return fetch(`http://localhost:4000/courses/${id}`, {
+    return fetch(`${apiUrl}courses/${id}`, {
       headers: {
         'Authorization': token
       }
     })
   }
+
+  //delete course 
+  export const deleteCourse = (id) => {
+    const token = getTokenFromStorage().replace(/"/g, '');
+      return fetch(`${apiUrl}courses/${id}`, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': token
+        }
+      })
+    }

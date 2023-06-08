@@ -18,6 +18,8 @@ export default function CoursePage(){
 
     const[courseArray, setCourseArray] = useState([])
 
+    const[loginMessage, setLoginMessage] = useState(false)
+
     function handleCourseTextInput(e){
         setNewCourse({ ...newCourse, [e.target.name]: e.target.value });
     }
@@ -34,13 +36,19 @@ function createNewCourse(){
 
 useEffect(() => {
     getAllCourses()
-        .then((course) => course.json())
-        .then((data) => {
-            // console.log(data)
-            setCourseArray(data)
-            
-        })
-}, []) 
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Error fetching courses');
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setCourseArray(data);
+      })
+      .catch((error) => {
+        setLoginMessage(true);
+      });
+  }, []);
   
 function redirectToRoundPage(){
     navigate('/RoundPage');
@@ -48,6 +56,7 @@ function redirectToRoundPage(){
 
     return(
         <>
+        
         <div className="course-page-div">
         <h1>Create a Course</h1>
         <div className="create-course-div">
@@ -85,6 +94,12 @@ function redirectToRoundPage(){
         </div>
         <hr></hr>
         <h1>Or Pick From Our List of Courses</h1>
+        
+        <div className={ loginMessage ? "course-error-message" : "no-course-error-message"}>
+            {loginMessage && (
+            <h1 className="course-error-message-h1">Please Login to see the list of courses</h1>
+            )}
+            </div>
         </div>
           <div className="course-boxes">
           {courseArray.map(course => (

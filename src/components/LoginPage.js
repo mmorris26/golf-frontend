@@ -59,8 +59,9 @@ export default function LoginPage(){
         flexDirection: 'column',
       }}
     >
-    
-      <h1><b>Login</b></h1>
+    <div className="login-text">
+      <h1>Login</h1>
+    </div>
       <div className="login-page-div">
       <form>
         <div className="login-email-label">

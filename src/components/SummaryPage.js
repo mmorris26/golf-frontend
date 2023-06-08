@@ -3,6 +3,7 @@ import { getCourseRounds } from "../apis/CourseApis";
 import { useEffect } from "react";
 import { deleteRound } from "../apis/RoundApis";
 import { getAllRounds } from "../apis/RoundApis";
+import { isUserAuthenticated } from "../TokenLogic/tokenLogic";
 
 export default function SummaryPage(){
 
@@ -12,7 +13,17 @@ export default function SummaryPage(){
         rounds: []
    }])
 
+   const [isLoggedIn, setIsLoggedIn] = useState(null);
+
+   useEffect(() => {
+   
+       const authenticated = isUserAuthenticated(); 
+       setIsLoggedIn(authenticated);
+     }, []);
+
    const[handicap, setHandicap] = useState();
+
+
 
    useEffect(() => {
     calculateHandicap();
@@ -102,7 +113,7 @@ export default function SummaryPage(){
   
 
 
-return (
+return isLoggedIn ? (
     <>
    <div className="handicap">
    <h2>Handicap</h2>
@@ -145,7 +156,9 @@ return (
   </div>
   </div>
   </>
-);
+) : (
+    <h1 className="course-error-message-h1">Please Log in to see this page</h1>
+    );
 
    
 }

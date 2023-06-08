@@ -42,8 +42,9 @@ export default function SignUpPage(){
           flexDirection: 'column',
         }}
       >
-       
-        <h1><b>Sign Up</b></h1>
+       <div className="login-text">
+        <h1>Sign Up</h1>
+        </div>
         <div className="signup-page-div">
         <form>
         <div className="login-email-label">

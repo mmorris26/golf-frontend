@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { createRound } from "../apis/RoundApis";
 import { getUserIdFromStorage } from "../TokenLogic/tokenLogic";
-import { getCurrentCourse } from "../apis/CourseApis";
-import { storeCourseId, getCourseIdFromStorage } from "../apis/CourseApis";
+import { isUserAuthenticated } from "../TokenLogic/tokenLogic";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
@@ -11,8 +10,12 @@ export default function RoundPage(){
     
     const navigate = useNavigate();
     const location = useLocation();
+
+    
  
     const [courseId, setCourseId] = useState();
+
+
 
     const [newRound, setNewRound] = useState({
       date: '',
@@ -23,6 +26,14 @@ export default function RoundPage(){
       courseId: '',
       userId: getUserIdFromStorage()
     });
+
+    const [isLoggedIn, setIsLoggedIn] = useState(null);
+
+  useEffect(() => {
+    
+    const authenticated = isUserAuthenticated(); 
+    setIsLoggedIn(authenticated);
+  }, []);
   
     useEffect(() => {
       const createdOrClicked = () => {
@@ -58,11 +69,9 @@ export default function RoundPage(){
 
   }
 
-//   function redirectToRoundSummaryPage(){
-//     navigate('/RoundSummaryPage')
-//   }
+
     
-    return(
+    return isLoggedIn ? (
         <>
   <div className="round-page-container-div"> 
     <h1>Round</h1>
@@ -145,8 +154,10 @@ export default function RoundPage(){
 
 
         </div>  
-        </>
+        </> 
         
-    );
+    ) : (
+        <h1 className="course-error-message-h1">Please Log in to see this page</h1>
+        );
 
 }

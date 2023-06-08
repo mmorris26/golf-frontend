@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { getCurrentCourse, updateCourse, getCourseById } from "../apis/CourseApis";
 import { getCurrentRound, updateRound } from "../apis/RoundApis";
 import { useNavigate, useLocation } from "react-router-dom";
+import { isUserAuthenticated } from "../TokenLogic/tokenLogic";
 
 
 export default function RoundPageSummary(){
@@ -24,6 +25,15 @@ export default function RoundPageSummary(){
     })
 
     const[editInformation, setEditInformation] = useState(false)
+
+    const [isLoggedIn, setIsLoggedIn] = useState(null);
+
+    useEffect(() => {
+    
+        const authenticated = isUserAuthenticated(); 
+        setIsLoggedIn(authenticated);
+      }, []);
+      
 
 
     useEffect(() => {
@@ -85,7 +95,7 @@ export default function RoundPageSummary(){
         navigate('/SummaryPage')
     }
 
-    return(
+    return isLoggedIn ? (
     <>
     <div className="round-summary-div">
     <div className="round-summary-box-div">
@@ -94,7 +104,7 @@ export default function RoundPageSummary(){
         <div>
             <h3>Course</h3>
                 <div className="course-info">
-                    <h4><span class="name">Name:</span> {currentCourse.name}</h4>
+                    <h4>Name: {currentCourse.name}</h4>
                     <h4>Par: {currentCourse.par_score}</h4>
                 </div>
                 
@@ -191,7 +201,9 @@ export default function RoundPageSummary(){
        </div>
     </>
 
-    );
+    ) : (
+        <h1 className="course-error-message-h1">Please Log in to see this page</h1>
+        );
 
 }
 

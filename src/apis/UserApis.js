@@ -1,8 +1,9 @@
 import { getTokenFromStorage } from "../TokenLogic/tokenLogic"
+import { apiUrl } from "./apiConfig"
  
 //create a new user
 export const createUser = (newUser) => {
-    return fetch(`http://localhost:4000/signup`, {
+    return fetch(`${apiUrl}signup`, {
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
@@ -20,7 +21,7 @@ export const createUser = (newUser) => {
 
   //login
   export const authenticateUser = (userCredentials) => {
-    return fetch(`http://localhost:4000/login`, {
+    return fetch(`${apiUrl}login`, {
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
@@ -39,7 +40,7 @@ export const createUser = (newUser) => {
   //logout
   export const logOut = () => {
     const token = getTokenFromStorage().replace(/"/g, '');
-    return fetch(`http://localhost:4000/logout`, {
+    return fetch(`${apiUrl}logout`, {
       method: 'DELETE',
       headers: {
         "Authorization": token
