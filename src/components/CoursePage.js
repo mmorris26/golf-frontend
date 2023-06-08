@@ -3,9 +3,9 @@ import { getAllCourses } from "../apis/CourseApis";
 import { useEffect } from "react";
 import ListOfCourses from "./ListOfCourses";
 import { createCourse } from "../apis/CourseApis";
-import { storeCourseId } from "../apis/CourseApis";
+
 import { useNavigate } from "react-router-dom";
-import { getPayloadFromToken } from "../TokenLogic/tokenLogic";
+
 
 export default function CoursePage(){
     

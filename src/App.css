@@ -275,7 +275,7 @@ a:hover {
 
 .round-labels label{
   display: flex;
-  align-content: start;
+  align-content: flex-start;
   font-size: 25px;
 }
 

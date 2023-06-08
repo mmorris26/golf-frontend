@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getCurrentCourse, updateCourse, getCourseById } from "../apis/CourseApis";
+import { updateCourse, getCourseById } from "../apis/CourseApis";
 import { getCurrentRound, updateRound } from "../apis/RoundApis";
 import { useNavigate, useLocation } from "react-router-dom";
 import { isUserAuthenticated } from "../TokenLogic/tokenLogic";
