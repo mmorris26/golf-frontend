@@ -35,57 +35,57 @@ label {
 th {
   border-bottom: 1px solid black;
   height: 3rem;
- 
 }
-.summary-table-container{
+
+.summary-table-container {
   margin-top: 5px;
   margin: 0 auto;
   min-height: 100vh;
   display: flex;
   align-items: top;
   justify-content: center;
-  color: white
-
-
+  color: white;
+  overflow-x: auto; 
 }
 
 table {
   border: 4px solid forestgreen;
-  width: 1000px;
+  /* max-width: 100%;  */
+  width: 60rem; 
   height: auto;
-  table-layout: fixed;
+  table-layout: auto; 
 }
 
-
-
 .summary-table tbody tr:nth-child(odd) {
-  background-color: #80b918; 
+  background-color: #80b918;
 }
 
 .summary-table tbody tr:nth-child(even) {
-  background-color: #55a630; 
+  background-color: #55a630;
 }
 
-.login-text{
-  color:#dddf00;
+.login-text {
+  color: #dddf00;
   text-shadow: 0 0 15px;
 }
 
 td {
   text-align: center;
-  border-bottom: 1px lightgray ;
+  border-bottom: 1px lightgray;
   height: 6rem;
-  
 }
 
-thead{
+thead {
   background-color: #ffff3f;
-  color:#007f5f
+  color: #007f5f;
 }
 
-.handicap{
+.handicap {
   margin-top: 2rem;
 }
+
+
+
 
 /* login page styling */
 
@@ -173,12 +173,6 @@ a:hover {
   font-weight: bold;
 }
 
-
-
-
-
-
-
 /* sign up page styling */
 
 .signup-page-div {
@@ -221,7 +215,7 @@ a:hover {
   
 }
 
-.single-course{
+.single-course {
   padding: 2rem 0;
   margin: 2rem;
   border: solid;
@@ -230,9 +224,21 @@ a:hover {
   transition: transform 0.3s ease;
   box-shadow: 0 0 15px;
   background-color: #55a630;
-  color:#dddf00;
-  position:relative;
+  color: #dddf00;
+  position: relative;
 }
+
+@media (max-width: 768px) {
+  .single-course {
+    width: 90%; 
+    margin: 1rem auto; 
+    
+  }
+  .course-info{
+    font-size: 14px;
+  }
+}
+
 
 .single-course:hover {
   transform: scale(1.05); 
@@ -245,9 +251,6 @@ a:hover {
   margin: 2rem;
 }
 
-/* .course-error-message{
- display: none; 
-} */
 
 .course-error-message-h1{
   color: rgb(168, 28, 28)
@@ -278,10 +281,10 @@ a:hover {
   text-align: left;
 }
 
-.create-course-div{
+.create-course-div {
   color: yellow;
   background-color: #55a630;
-  border:  4px solid;
+  border: 4px solid;
   height: 20rem;
   width: 40rem;
   border-radius: 1rem;
@@ -291,6 +294,14 @@ a:hover {
   justify-content: center;
   margin-bottom: 2rem;
   box-shadow: 0 0 15px;
+}
+
+@media (max-width: 768px) {
+  .create-course-div {
+    width: 90%; 
+    height: auto; 
+    padding: 2rem; 
+  }
 }
 
 /* round page styling */
@@ -335,7 +346,7 @@ a:hover {
   border-radius: 0.5rem;
   height:2.5rem;
   background-color: white;
-  color: red;
+  color: black;
   font-weight: bold;
 
 }
@@ -343,6 +354,22 @@ a:hover {
 .round-button{
   width: 10rem;
   margin-bottom:7rem;
+}
+
+@media (max-width: 768px) {
+  .round-guest-div {
+    width: 90%; 
+    height: auto; 
+    padding: 2rem; 
+  }
+
+  .round-inputs input {
+    width: 100%; 
+  }
+
+  .round-button {
+    margin-bottom: 2rem;
+  }
 }
 
 /* Nav bar styling */
@@ -371,7 +398,7 @@ a:hover {
 @media (max-width: 768px) {
   .nav-bar-elements a,
   .nav-bar-elements button {
-    font-size: 12px; /* Adjust the font size to make the elements smaller */
+    font-size: 12px; 
   }
 }
 
