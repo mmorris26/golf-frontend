@@ -27,7 +27,7 @@ export const createRound = (newRound) => {
 //get the most recently created round
   export const getCurrentRound = () => {
     const token = getTokenFromStorage().replace(/"/g, '');
-    return fetch(`${apiUrl}current_round`, {
+    return fetch(`${apiUrl}rounds/current_round`, {
       headers: {
         "Authorization": token,
       }
