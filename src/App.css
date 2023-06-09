@@ -141,7 +141,7 @@ thead {
 @media (min-width: 1200px) {
   .login-email-input input,
   .login-password-input input {
-    width: 40rem;
+    width: 30rem;
   }
 }
 
