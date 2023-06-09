@@ -215,6 +215,10 @@ a:hover {
   
 }
 
+.course-page-div h1 {
+  color: #55a630;
+}
+
 .single-course {
   padding: 2rem 0;
   margin: 2rem;
