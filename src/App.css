@@ -423,6 +423,10 @@ a:hover {
   margin: 0 auto;
 }
 
+.round-summary-div h3, h1 {
+  color: white
+}
+
 .round-summary-box-div{
   border: solid;
   border:  4px solid;

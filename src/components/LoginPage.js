@@ -83,6 +83,7 @@ export default function LoginPage(){
         <div className="login-password-input">
             <input
             name="password"
+            type='password'
             placeholder="Enter your password"
             required
             value={userCredentials.password}

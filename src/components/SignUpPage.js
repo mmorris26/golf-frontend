@@ -77,6 +77,7 @@ export default function SignUpPage(){
             <div className="login-email-input">
                 <input
                     name="password"
+                    type='password'
                     placeholder="Enter your password"
                     required
                     value={newUser.password}
