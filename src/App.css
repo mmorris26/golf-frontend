@@ -326,6 +326,10 @@ a:hover {
   margin-top: 2rem;
 }
 
+.round-page-container-div h1{
+  color:#2b9348
+}
+
 .round-page-round-div{
   border: solid;
   border-color: yellow;
