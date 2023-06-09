@@ -7,6 +7,7 @@ import { isUserAuthenticated } from "../TokenLogic/tokenLogic";
 
 export default function SummaryPage(){
 
+//state to hold teh course round information. rouns as an empty array
    const[summaryArray, setSummaryArray] = useState([{
         name: "",
         par_score: "",
@@ -21,14 +22,16 @@ export default function SummaryPage(){
        setIsLoggedIn(authenticated);
      }, []);
 
+    //state to hold the value of the handicap 
    const[handicap, setHandicap] = useState();
 
 
-
+//call the handicap function when page relaods
    useEffect(() => {
     calculateHandicap();
   }, []);
-    
+ 
+//function to get the courses and rounds and hold in state
    useEffect(() => {
         getCourseRounds()
             .then((response) => response.json())
@@ -37,7 +40,10 @@ export default function SummaryPage(){
                 setSummaryArray(data)
             })
     }, []) 
-    
+
+//define new array which stored the round info on the same level as course info
+//and not nested.
+
    const flatSummaryArray = summaryArray.flatMap((course) => 
     course.rounds.map((round) => ({
         courseName: course.name,
@@ -51,6 +57,7 @@ export default function SummaryPage(){
     }))
    ); 
 
+//function to delete round from table, display that on the screen and also delte form DB
    function deleteRoundFromTable(index) {
 
     const updatedSummaryArray = [...summaryArray];
@@ -89,7 +96,8 @@ export default function SummaryPage(){
         .catch((error) => console.log(error))
      
   }
-    
+
+  //function get all the round and calculate teh handicap as an avergae of all scores.
 
   function calculateHandicap() {
     getAllRounds()

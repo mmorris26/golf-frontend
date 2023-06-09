@@ -5,6 +5,7 @@ export default function NavBar(){
     
     const navigate = useNavigate();
 
+    //function to log user out when clicking log out button.
     function logOutUser(){
         logOut()
             .then((response) => response.json())

@@ -11,29 +11,34 @@ export default function CoursePage(){
     
     const navigate = useNavigate();
 
+    //state to hold newly created courses
     const[newCourse, setNewCourse] = useState({
         name: "",
         par: ""
     })
 
+    //state to hold courses fetched from the databass
     const[courseArray, setCourseArray] = useState([])
 
+    //state to hold the conditional login message
     const[loginMessage, setLoginMessage] = useState(false)
 
+    // function to handle the user input in hte input boxes
     function handleCourseTextInput(e){
         setNewCourse({ ...newCourse, [e.target.name]: e.target.value });
     }
 
+    //function to call the create course api and create a course form the newCourse state
 function createNewCourse(){
     createCourse(newCourse)
         .then((response) => response.json())
         .then((data) => {
-            console.log("returned created course ", data);
             navigate('/RoundPage', { state: { id1: data.id, created: true } });
             setCourseArray([...courseArray, data])
         })
 }
 
+//function to call the get all courses api when the page renders and apply the conditional login styling
 useEffect(() => {
     getAllCourses()
       .then((response) => {
@@ -57,13 +62,13 @@ function redirectToRoundPage(){
     return(
         <>
         
-        <div className="course-page-div">
+    <div className="course-page-div">
         <h1>Create a Course</h1>
-        <div className="create-course-div">
-        <form>
-            <div className="login-email-label">
-                <label>Course Name</label>
-            </div>
+            <div className="create-course-div">
+                <form>
+                    <div className="login-email-label">
+                        <label>Course Name</label>
+                    </div>
             <div className="login-email-input">
                 <input
                     name="name"

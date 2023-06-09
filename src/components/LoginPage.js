@@ -7,25 +7,23 @@ import { storeToken, storeUserIdLocally } from "../TokenLogic/tokenLogic";
 export default function LoginPage(){
     const navigate = useNavigate();
 
+    //state to handle the email and password the user types in
     const [userCredentials, setUserCredentials] = useState({
         email: "",
         password: ""
     })
 
-   
-
     function handleLoginTextInput(e){
         setUserCredentials({ ...userCredentials, [e.target.name]: e.target.value });
-        console.log(userCredentials)
+       
     }
-
+//function to call the authenticate user api and rturn a token. Then store 
+//the token in local storage.
     function logUserIn(){
         authenticateUser(userCredentials)
          .then((response) => {
             const token = response.headers.get("Authorization")
-            console.log('token ', token)
             storeToken(token)
-
             return response.json()
         })
          .then((data) => {
@@ -35,17 +33,10 @@ export default function LoginPage(){
          
     }
 
-    // function redirectToCoursePage(){
-    //     navigate('/CoursePage');
-    // }  
-
     function redirectToSignUpPage(){
         navigate('/SignUpPage');
     }
     
-
-   
-
     return(
         <div
       style={{

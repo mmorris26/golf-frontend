@@ -11,12 +11,10 @@ export default function RoundPage(){
     const navigate = useNavigate();
     const location = useLocation();
 
-    
- 
+    //state to hold the course ID 
     const [courseId, setCourseId] = useState();
-
-
-
+    
+    //state to hold the newly created round.
     const [newRound, setNewRound] = useState({
       date: '',
       holes: '',
@@ -27,14 +25,20 @@ export default function RoundPage(){
       userId: getUserIdFromStorage()
     });
 
+    //state to hold a true or false as to whether user is logged in our not.
+    //this is to apply some confitional styling.
     const [isLoggedIn, setIsLoggedIn] = useState(null);
 
+//function that stores the rsult of teh authenticated funtion in the logged in state.
   useEffect(() => {
     
     const authenticated = isUserAuthenticated(); 
     setIsLoggedIn(authenticated);
   }, []);
-  
+ 
+  //function that use the location constant to check whether or not a user
+  //created a course or picked one from the list of courses. USe the output to
+  //set the course ID state so we know which course to attribute this round to.
     useEffect(() => {
       const createdOrClicked = () => {
         if (location.state && location.state.id1) {
@@ -55,22 +59,17 @@ export default function RoundPage(){
 
   function handleRoundTextInput(e){
     setNewRound({ ...newRound, [e.target.name]: e.target.value });
-    console.log(newRound)
   }
 
   function createNewRound(){
     createRound(newRound)
         .then((round) => round.json())
         .then((data) => {
-            console.log(data)
             navigate('/RoundSummaryPage', { state: { courseId } });
         })
-        console.log("State", newRound)
+        
 
   }
-
-
-    
     return isLoggedIn ? (
         <>
   <div className="round-page-container-div"> 

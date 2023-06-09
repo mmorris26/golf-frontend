@@ -9,13 +9,13 @@ export default function RoundPageSummary(){
     
     const navigate = useNavigate();
     const location = useLocation();
-    // const courseId = location.state.courseId;
-
+   
+//state to hold the values of teh  course to display on screen
     const [currentCourse, setCurrentCourse] = useState({
         name: "",
         par_score: ""
     }) 
-
+//state to hold the values of the round just entered to display on screen.
     const [currentRound, setCurrentRound] = useState({
         date: '',
         number_of_holes:"",
@@ -24,17 +24,20 @@ export default function RoundPageSummary(){
         guest_score: "",
     })
 
+//state to hold a boolean that toggels the edit class display to true.
     const[editInformation, setEditInformation] = useState(false)
 
+//state to hold a boolean that toggles the class as to wether user is logged in or not.
     const [isLoggedIn, setIsLoggedIn] = useState(null);
 
+    //function that checks if a user is authenticated and sets teh state
     useEffect(() => {
-    
         const authenticated = isUserAuthenticated(); 
         setIsLoggedIn(authenticated);
       }, []);
       
-
+//function that gets the course that was clicked or created based on the use naviageteID
+// then gests the round that was just crated and displays both on screen
 
     useEffect(() => {
         if (location.state && location.state.courseId) {
@@ -54,33 +57,34 @@ export default function RoundPageSummary(){
           });
       }, [location.state]);
 
-
+//function to handle the toggling of the edit class
     function toggleEdit(){
         setEditInformation(!editInformation)
     }
 
+//function to handle the edit text theuser types in for the course
     function handleEditCourseTextInput(e){
         setCurrentCourse({ ...currentCourse, [e.target.name]: e.target.value });
-        console.log(currentCourse);
-        console.log("ID ", currentCourse.id)
     }
 
+    //function to handle the edit text theuser types in for the round.
     function handleEditRoundTextInput(e){
         setCurrentRound({ ...currentRound, [e.target.name]: e.target.value });
-        console.log(currentRound);
+       
     }
-
+//function call both update apis one after the other.
     function updateInformation(){
         updateCourseInformation()
         updateRoundInformation()
     }
- 
+ //function to update the course array with newly entered info
     function updateCourseInformation(){
         updateCourse(currentCourse.id, currentCourse)
             .then((response) => response.json())
             .then((data) => setCurrentCourse(data))
     }
 
+    //function to update the round array with newly entered information
     function updateRoundInformation(){
         updateRound(currentRound.id, currentRound)
             .then((response) => response.json())

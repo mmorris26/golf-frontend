@@ -7,6 +7,7 @@ export default function SignUpPage(){
 
     const navigate = useNavigate()
 
+    //state to hold the info collected on sign up
     const [newUser, setNewUser] = useState({
         name: "",
         email: "",
@@ -16,14 +17,15 @@ export default function SignUpPage(){
     function handleSignUpTextInput(e){
         setNewUser({ ...newUser, [e.target.name]: e.target.value });
     }
-
+//function to create new user
     function createNewUser(){
         createUser(newUser)
             .then((user) =>user.json())
             .then((data) => console.log(data))
             .catch((error) => console.log(error))
     }
-    
+ //need to refactor this to only create a user when sucessful. Put the function in the 
+ //second then block above.   
     function redirectToLoginPage(){
         navigate('/');
     }
