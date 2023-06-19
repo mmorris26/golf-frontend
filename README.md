@@ -24,6 +24,8 @@ For the application itself I decided to build a fully responsive golf tracking w
 
 Below show the initial wireframes I made for this project. Once I created them I didn't modify them.
 
+## Frontend
+
 ### Login/Signup
 ![My Image](wireframes/login-signup.png)
 ### Course
@@ -34,3 +36,24 @@ Below show the initial wireframes I made for this project. Once I created them I
 ![My Image](wireframes/course-round-summary.png)
 ### Summary
 ![My Image](wireframes/summary.png)
+
+## Backend
+
+### Models
+![My Image](wireframes/models.png)
+
+### Current State
+
+https://master--friendly-concha-c494ca.netlify.app/SignUpPage
+
+## Building
+
+## Backend 
+
+I decided to build the backend first so that once I finished it I could leave it largely untouched and focus on adding features in the frontend. The backend is the part I enjoy the most, and because I chose to keep my models fairly simple, the backend took about a day and a half in total.
+
+The most difficult part was getting devise and devise-jwt to work. Because of the nature of Rails having huge amount of the plumbing done for you, when you get an error it can be very difficult to know how to debug it. This meant I had to restart my project 4 times until I figured out I needed to set up devise before anything else. There were a few issues getting devise to work but once I overcame those it worked as expected.
+
+With devise up and running I then created my models and built their schemas. I did this almost entirely through the command line apart from the foregin key references in the tables which i did in the migration files themselves.
+
+Lastly I create the routes on models.
