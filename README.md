@@ -25,7 +25,7 @@ For the application itself I decided to build a fully responsive golf tracking w
 Below show the initial wireframes I made for this project. Once I created them I didn't modify them.
 
 ### Login/Signup
-![My Image](../wireframes/login-signup.png)
+![My Image](wireframes/login-signup.png)
 ### Course
 
 ### Round
