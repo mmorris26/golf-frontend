@@ -27,9 +27,10 @@ Below show the initial wireframes I made for this project. Once I created them I
 ### Login/Signup
 ![My Image](wireframes/login-signup.png)
 ### Course
-
+![My Image](wireframes/course.png)
 ### Round
-
+![My Image](wireframes/round.png)
 ### Course/Round Summary
-
+![My Image](wireframes/course-round-summary.png)
 ### Summary
+![My Image](wireframes/summary.png)
