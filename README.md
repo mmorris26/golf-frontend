@@ -57,3 +57,44 @@ The most difficult part was getting devise and devise-jwt to work. Because of th
 With devise up and running I then created my models and built their schemas. I did this almost entirely through the command line apart from the foregin key references in the tables which i did in the migration files themselves.
 
 Lastly I create the routes on models.
+
+## Fronted
+
+For my React frontend I first built all different routes in the App.js file and set up my nav bar. From experience I found it easier to start with this rather than doing it retrospectively and having to pass lots of props around. With the routes built I created the wireframes for the sign up and login pages and tested out the integration with backend APIs. 
+
+### Authentication
+I receive a token from the backend when a user successfully signs in or signs up and I extract the token from the header inthe frontend and store it locally in the browser. I then have a set of functions to check if a token exists, and if it is valid. I can then import these functions in whichever components I need and use them.
+
+Extracting the token from the Header
+```
+{
+export const getPayloadFromToken = () => {
+    const loadedBearerToken = getTokenFromStorage();
+    
+    if (!loadedBearerToken) {
+      throw new Error("Token is missing or invalid");
+    }
+  
+    const loadedToken = loadedBearerToken.replace("Bearer ", "");
+    if (!loadedToken) {
+      throw new Error("Token is missing or invalid");
+    }
+  
+    const encryptedPayload = loadedToken.split(".");
+    console.log("Encrypted payload: " + encryptedPayload)
+    if (encryptedPayload.length < 2) {
+      throw new Error("Invalid token structure");
+    }
+  
+    const decodedPayload = Buffer.from(encryptedPayload[1], "base64").toString("utf-8");
+    const parsedPayload = JSON.parse(decodedPayload);
+    console.log("parased payload: ",  parsedPayload)
+    return parsedPayload;
+  }
+}
+
+```
+
+
+
+I went on to build the basic functionality for all of the pages and tested their interaction with their apis.
